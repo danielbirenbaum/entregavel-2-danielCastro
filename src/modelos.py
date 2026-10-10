@@ -1,3 +1,5 @@
+import cv2
+
 class Deteccao:
     
     def __init__(self,classe_id : int,x_min: int,y_min: int,x_max: int,y_max: int):
@@ -8,7 +10,10 @@ class Deteccao:
         self.y_max = y_max
         
     def desenhar(self, imagem):
-        pass
+        if self.classe_id == 0:
+            cv2.rectangle(imagem, (self.x_max,self.y_max),(self.x_min,self.y_min), (0, 255, 0), 3)
+        else:
+            cv2.rectangle(imagem, (self.x_max,self.y_max),(self.x_min,self.y_min), (0, 0, 255), 3)
 
 class ImagemAnotada:
     
@@ -16,9 +21,13 @@ class ImagemAnotada:
         self.pthImagem = pthImagem
         self.listDeteccoes = listDeteccoes
     
-    def adicionaDeteccao(self,det):
+    def adicionaDeteccao(self, det : Deteccao):
         self.listDeteccoes.append(det)
         
     def gerarImagem(self):
-        pass
-    
+        imagem = cv2.imread(self.pthImagem)
+        
+        for deteccao in self.listDeteccoes:
+            deteccao.desenhar(imagem)
+        
+        return imagem  
