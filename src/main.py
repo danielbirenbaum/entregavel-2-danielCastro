@@ -18,9 +18,12 @@ def main():
         
         pasta_imagens = Path("./imagens")
         
+        keepItarating = True
+        count = 0
         #Itera sob todos os arquivos de imagens
         for paths in sorted(pasta_imagens.iterdir()):
-            keepItarating = True
+            if (not(keepItarating)): count = 1
+            
             cenaAtualNome = paths.name # cena alvo para buscar em dadosTratados
             
             imgAntd = ImagemAnotada(paths)
@@ -45,15 +48,14 @@ def main():
                     break 
                     
                 elif tecla == ord('q'):
+                    cv2.imwrite(f"./resultados/{cenaAtualNome}",imgFinal)
                     #Destrói todas as imagens mostrada, indica para parar o loop de analisar novas imagens
                     cv2.destroyAllWindows()
                     keepItarating = False
                     break
-            
-            if keepItarating == False:
+                
+            if count == 1:
                 break
-            
-
     
     except Exception as e:
         print(f"ERRO main(): {e}")
