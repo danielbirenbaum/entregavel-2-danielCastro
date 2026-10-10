@@ -17,9 +17,13 @@ class Deteccao:
 
 class ImagemAnotada:
     
-    def __init__(self, pthImagem , listDeteccoes : list = []):
+    def __init__(self, pthImagem , listDeteccoes=None):
         self.pthImagem = pthImagem
-        self.listDeteccoes = listDeteccoes
+        
+        if listDeteccoes is None:
+            self.listDeteccoes = []
+        else:
+            self.listDeteccoes = listDeteccoes
     
     def adicionaDeteccao(self, det : Deteccao):
         self.listDeteccoes.append(det)

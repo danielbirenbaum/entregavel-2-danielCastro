@@ -33,12 +33,15 @@ def main():
             
             imgFinal = imgAntd.gerarImagem()
             cv2.imshow(cenaAtualNome, imgFinal)
+            print("#######################")
+            print(f"Nome da imagem: {cenaAtualNome}")
+            print(f"Quantidade de caixas: {len(imgAntd.listDeteccoes)}")
             
             while True:
                 tecla = cv2.waitKey(0)
                 
                 if tecla == ord(' '):  
-                    cv2.imwrite(f"./resultados/detected_{cenaAtualNome}",imgFinal)
+                    cv2.imwrite(f"./resultados/{cenaAtualNome}",imgFinal)
                     break 
                     
                 elif tecla == ord('q'):
@@ -49,9 +52,8 @@ def main():
             
             if keepItarating == False:
                 break
-                    
             
-              
+
     
     except Exception as e:
         print(f"ERRO main(): {e}")
