@@ -11,13 +11,13 @@ class Deteccao:
         
     def desenhar(self, imagem):
         if self.classe_id == 0:
-            cv2.rectangle(imagem, (self.x_max,self.y_max),(self.x_min,self.y_min), (0, 255, 0), 3)
+            cv2.rectangle(imagem, (self.x_max,self.y_max),(self.x_min,self.y_min), (0, 255, 0), 1)
         else:
-            cv2.rectangle(imagem, (self.x_max,self.y_max),(self.x_min,self.y_min), (0, 0, 255), 3)
+            cv2.rectangle(imagem, (self.x_max,self.y_max),(self.x_min,self.y_min), (0, 0, 255), 1)
 
 class ImagemAnotada:
     
-    def __init__(self, pthImagem : str, listDeteccoes : list):
+    def __init__(self, pthImagem , listDeteccoes : list = []):
         self.pthImagem = pthImagem
         self.listDeteccoes = listDeteccoes
     
