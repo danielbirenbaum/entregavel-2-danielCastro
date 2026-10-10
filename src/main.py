@@ -1,8 +1,13 @@
+#Autor: Daniel Birenbaum Guerrieri de Castro
+#Github: https://github.com/danielbirenbaum
+
 from modelos import Deteccao
 from modelos import ImagemAnotada
+import cv2
+
 
 def main():
-    print("Hello from entregavel-2-danielcastro!")
+    pass
 
 
 if __name__ == "__main__":
