@@ -1,5 +1,5 @@
 import cv2
-
+#Classe Deteccao, possui dados referentes à uma caixa e método para desenhar essa caixa dado uma imagem por argumento
 class Deteccao:
     
     def __init__(self,classe_id : int,x_min: int,y_min: int,x_max: int,y_max: int):
@@ -15,6 +15,7 @@ class Deteccao:
         else:
             cv2.rectangle(imagem, (self.x_max,self.y_max),(self.x_min,self.y_min), (0, 0, 255), 1)
 
+#Classe ImagemAnotada, contém uma lista com todas as Deteccoes. Método para adicionar uma deteccao na imagem e método para gerar o vetor da imagem final 
 class ImagemAnotada:
     
     def __init__(self, pthImagem , listDeteccoes=None):

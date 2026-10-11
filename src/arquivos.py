@@ -25,6 +25,20 @@ def tratarDados(dados : list):
         dadosTratados = []
         for row in dados:
             dadosTratados.append([row[0],int(row[1]),int(row[2]),int(row[3]),int(row[4]),int(row[5])])
+            #(classe_id,x_min,y_min,x_max,y_max)
+            
+            #Verificação dos dados
+            #Classe ID
+            if (int(row[1]) not in [0,1]):
+                raise Exception("Classe ID só pode ser 0 ou 1")
+            #x_min
+            if (not(int(row[2]) >= 0 and int(row[4]) >= int(row[2]))):
+                raise Exception("x_min não pode ser menor que 0 ou x_min não pode ser maior que x_max")
+            #y_min
+            if (not(int(row[3]) >= 0 and int(row[5]) >= int(row[3]))):
+                raise Exception("y_min não pode ser menor que 0 ou y_min não pode ser maior que y_max")
+            
+            
         return dadosTratados
     
     except Exception as e:

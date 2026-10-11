@@ -14,7 +14,6 @@ def main():
         
         dados = lerDados("./dados/anotacoes.csv")
         dadosTratados = tratarDados(dados) #lista de listas com números inteiros para os campos correspondentes
-        #print(dadosTratados)
         
         pasta_imagens = Path("./imagens")
         
@@ -31,6 +30,7 @@ def main():
                 
                 if (indexador[0] == cenaAtualNome):
                     imgAntd.adicionaDeteccao(Deteccao(indexador[1],indexador[2],indexador[3],indexador[4],indexador[5]))
+                    
             
             imgFinal = imgAntd.gerarImagem()
             cv2.imshow(cenaAtualNome, imgFinal)
