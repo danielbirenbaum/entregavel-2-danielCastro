@@ -11,11 +11,10 @@ import cv2
 
 def main():
     try:
+        pasta_imagens = Path("./imagens")
         
         dados = lerDados("./dados/anotacoes.csv")
-        dadosTratados = tratarDados(dados) #lista de listas com números inteiros para os campos correspondentes
-        
-        pasta_imagens = Path("./imagens")
+        dadosTratados = tratarDados(dados,"./dados/mapeamento_imagens.csv") #lista de listas com números inteiros para os campos correspondentes
         
         keepItarating = True
         #Itera sob todos os arquivos de imagens

@@ -18,9 +18,16 @@ def lerDados(pth : str):
         print(f"ERRO lerDados(): {e}.")
         raise
     
-# Tratará a lista de listas do csv para a criação das instâncias       
-def tratarDados(dados : list):
+# Tratará a lista de listas do csv para a criação das instâncias    
+# Usa o argumento referência para verificar com os dados de mapeamento_imagens.csv
+def tratarDados(dados : list, pthReferencia):
     try:
+        
+        ref = lerDados(pthReferencia) #lista de listas com o mapeamento
+        #Dicionário do tipo -> cena_0x : (largura,altura)
+        dictValores = {}
+        for row in ref:
+            dictValores[row[0]] = (int(row[2]),int(row[3]))
         
         dadosTratados = []
         for row in dados:
@@ -37,8 +44,10 @@ def tratarDados(dados : list):
             #y_min
             if (not(int(row[3]) >= 0 and int(row[5]) >= int(row[3]))):
                 raise Exception("y_min não pode ser menor que 0 ou y_min não pode ser maior que y_max")
-            
-            
+            #y_max e x_max para altura e largura
+            if (int(row[5]) > dictValores[row[0]][1] or int(row[4]) > dictValores[row[0]][0]):
+                raise Exception("x_max ou y_max não podem ser maior que a largura nem altura das imagens reespectivamente")
+                 
         return dadosTratados
     
     except Exception as e:
