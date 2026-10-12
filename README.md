@@ -51,7 +51,7 @@ Capturas do drone aparecerão na tela, podendo dar dois comandos:
 
 Pressione <kbd>Space</kbd>para avançar a página e <kbd>q</kbd> para sair.
 
-## Funcionamento de [`modelos.py`](https://github.com/danielbirenbaum/entregavel-2-danielCastro/blob/main/src/modelos.py)
+## Funcionamento de [`modelos.py`](src/modelos.py)
 
 | Classe         | Funcionalidade | 
 | :--------------| :--------: | 
