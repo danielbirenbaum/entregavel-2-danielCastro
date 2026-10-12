@@ -32,7 +32,7 @@ def main():
                     
             
             imgFinal = imgAntd.gerarImagem()
-            cv2.imshow(cenaAtualNome, imgFinal)
+            cv2.imshow(f"{cenaAtualNome} / ID 0: Verde / ID 1: Vermelho", imgFinal)
             print("#######################")
             print(f"Nome da imagem: {cenaAtualNome}")
             print(f"Quantidade de caixas: {len(imgAntd.listDeteccoes)}")
